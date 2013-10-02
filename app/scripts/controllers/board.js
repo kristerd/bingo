@@ -6,7 +6,8 @@ angular.module('bingoApp')
   	var boardId = $routeParams.boardId,
   		gameId = $routeParams.gameId,
   		ref = new Firebase('https://beerbingo.firebaseio.com/'+gameId+"/boards/"+boardId),
-  		game;
+  		game = new Firebase('https://beerbingo.firebaseio.com/'+gameId);
 
   		angularFire(ref, $scope, 'board');
+  		angularFire(game, $scope, 'game');
  });

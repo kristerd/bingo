@@ -24,7 +24,7 @@ angular.module('bingoApp')
     
   	$scope.drawNumber = function() {
   		testAnim("bounce");
-
+  		game.bingo = false;
   		var wait = window.setTimeout( function(){
   			playDing();
 			if(game.drawNumber().bingo) {
