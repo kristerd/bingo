@@ -2,11 +2,11 @@
 	<h1>BEERBINGO!</h1>
 	<p>BeerBingo er en elektronisk drikkelek. <strong>Reglene er enkle: Får du BINGO må du drikke.</strong></p>
 </header>
+<div class="new-game">
+	<button ng-click="newGame()">OPPRETT ET NYTT SPILL</button> eller bli med på et av de som allerede finnes.
+</div>
 <div class="main-container">
-	<div>
-		<button ng-click="newGame()">OPPRETT ET NYTT SPILL</button> eller bli med på et av de som allerede finnes.
-	</div>
-	<div class="game" ng-repeat="item in items">
+	<div class="game {{item.status}}" ng-repeat="item in items">
 		<h2 class="name">
 			<a href="#/game/{{item.id}}">{{item.name}}</a>
 		</h2>

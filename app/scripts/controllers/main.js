@@ -11,6 +11,16 @@ angular.module('bingoApp')
 	});*/
     angularFire(ref, $scope, 'items');
 
+    function testAnim(x, element) {
+		$(element).removeClass().addClass(x + ' animated');
+		var wait = window.setTimeout( function(){
+			$(element).removeClass()},
+			1300
+		);
+	}
+
+	testAnim("bounceInDown", "h1");
+
 	$scope.draw = function() {
 		$scope.game.drawNumber();
 
