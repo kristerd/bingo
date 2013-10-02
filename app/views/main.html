@@ -1,0 +1,48 @@
+<div class="main-container">
+	<h1>BEERBINGO!</h1>
+	<p>BeerBingo er en elektronisk drikkelek. <strong>Reglene er enkle: Får du BINGO må du drikke.</strong></p>
+	<div>
+		<button ng-click="newGame()">OPPRETT ET NYTT SPILL</button> eller bli med på et av de som allerede finnes.
+	</div>
+	<table>
+		<tr>
+			<th>Spillnavn</th>
+			<th>Antall spillere</th>
+			<th>Status</th>
+			<th>Join</th>
+		</tr>
+		<tr ng-repeat="item in items">
+			<td>
+				<a href="#/game/{{item.id}}">{{item.name}}</a>
+			</td>
+			<td>
+				Antall spillere: {{item.boards.length}}
+			</td>
+			<td>
+				{{item.status}}
+			</td>
+			<td>
+				<button ng-click="addBoardToGame(item)">BLI MED</button>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="hero-unit">
+  <button ng-click="pullFromHat()">Pull</button>
+  <button ng-click="addBoardToGame()">Add board</button>
+  <button ng-click="draw()">Simulate Game</button>
+  
+</div>
+<div ng-repeat="item in game.boards" class="bingo-board">
+	<div class="top-row row">
+		<div class="B">B</div>
+		<div class="I">I</div>
+		<div class="N">N</div>
+		<div class="G">G</div>
+		<div class="O">O</div>
+	</div>
+	<div ng-repeat="rows in item.numbers" class="row">
+		<div ng-repeat="number in rows" class="col number_{{number}}">{{number}}</div>
+	</div>
+</div>
